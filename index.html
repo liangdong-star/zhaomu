@@ -271,10 +271,11 @@
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
                         <h3 class="text-xl font-semibold mb-4">在线报名</h3>
-                        <!-- The form is updated to submit data to formsubmit.co service -->
-                        <form action="https://formsubmit.co/3551224508@qq.com" method="POST" class="space-y-4">
-                            <!-- This hidden input sets the email subject -->
+                        <!-- This form now uses JavaScript to submit data for a better user experience -->
+                        <form id="enrollment-form" class="space-y-4">
+                            <!-- Hidden inputs for formsubmit.co configuration -->
                             <input type="hidden" name="_subject" value="新的临床试验报名申请 - 金线莲苷研究">
+                            <input type="hidden" name="_captcha" value="false">
                             
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-700">姓名</label>
@@ -289,7 +290,7 @@
                                 <input type="text" id="time" name="方便联系的时间" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="例如：工作日下午">
                             </div>
                             <p class="text-xs text-gray-500">点击提交后，您的报名信息将被安全发送。</p>
-                            <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">确认提交报名</button>
+                            <button type="submit" id="submit-button" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">确认提交报名</button>
                         </form>
                     </div>
                     <div class="bg-blue-50 p-6 rounded-lg">
@@ -399,13 +400,47 @@
              resultDiv.classList.remove('hidden');
         }
 
-        // The submitEnrollment function is no longer needed as the form now submits directly.
-        // It is kept here in case you want to switch back or add JavaScript validation before submission.
-        /*
-        function submitEnrollment() {
-            // This function is now handled by the form's action attribute.
-        }
-        */
+        // NEW: JavaScript code to handle form submission without page reload
+        const enrollmentForm = document.getElementById('enrollment-form');
+        const submitButton = document.getElementById('submit-button');
+
+        enrollmentForm.addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(enrollmentForm);
+            const action = "https://formsubmit.co/3551224508@qq.com";
+            
+            submitButton.disabled = true;
+            submitButton.textContent = '正在发送...';
+
+            fetch(action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    // Handle network errors
+                    throw new Error('网络错误，请重试。');
+                }
+            }).then(data => {
+                // The form submission was successful
+                showAlert('报名信息已成功发送！研究人员会尽快与您联系。');
+                enrollmentForm.reset(); // Clear the form fields
+            }).catch(error => {
+                // An error occurred
+                showAlert('发送失败，请稍后重试或直接拨打研究热线。');
+                console.error(error);
+            }).finally(() => {
+                // Re-enable the button
+                submitButton.disabled = false;
+                submitButton.textContent = '确认提交报名';
+            });
+        });
+
 
         // 自定义弹窗函数
         const alertOverlay = document.getElementById('custom-alert');
