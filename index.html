@@ -384,20 +384,16 @@
                 answers.q7 === 'yes';
 
             if (isEligible) {
-                resultDiv.innerHTML = `
-                    <div class="p-4 bg-green-100 text-green-700 rounded-md">
-                        <h3 class="font-bold">初步符合！</h3>
-                        <p>感谢您的回答！根据您的信息，您可能符合本研究的要求。请前往“在线报名”页面填写联系方式，我们的研究协调员将在2个工作日内与您联系。</p>
-                        <button class="mt-2 bg-green-500 text-white py-1 px-3 rounded" onclick="showTab('contact')">立即报名</button>
-                    </div>`;
+                // EDITED: Directly jump to the contact form upon success
+                showTab('contact');
             } else {
                  resultDiv.innerHTML = `
                     <div class="p-4 bg-red-100 text-red-700 rounded-md">
                         <h3 class="font-bold">可能不符合</h3>
                         <p>感谢您的参与！根据您提供的信息，您可能不符合本次研究的标准。NASH的治疗需要综合管理，建议您咨询您的医生。也欢迎您持续关注我们未来的其他研究项目。</p>
                     </div>`;
+                resultDiv.classList.remove('hidden');
             }
-             resultDiv.classList.remove('hidden');
         }
 
         // NEW: JavaScript code to handle form submission without page reload
@@ -431,8 +427,8 @@
                 showAlert('报名信息已成功发送！研究人员会尽快与您联系。');
                 enrollmentForm.reset(); // Clear the form fields
             }).catch(error => {
-                // An error occurred
-                showAlert('发送失败，请稍后重试或直接拨打研究热线。');
+                // EDITED: Simplified error message
+                showAlert('发送失败，请检查您的网络连接并重试。');
                 console.error(error);
             }).finally(() => {
                 // Re-enable the button
@@ -457,4 +453,4 @@
 
     </script>
 </body>
-</html>
+</ht
