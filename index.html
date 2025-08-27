@@ -271,21 +271,25 @@
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
                         <h3 class="text-xl font-semibold mb-4">在线报名</h3>
-                        <form id="enrollment-form" class="space-y-4">
+                        <!-- The form is updated to submit data to formsubmit.co service -->
+                        <form action="https://formsubmit.co/3551224508@qq.com" method="POST" class="space-y-4">
+                            <!-- This hidden input sets the email subject -->
+                            <input type="hidden" name="_subject" value="新的临床试验报名申请 - 金线莲苷研究">
+                            
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-700">姓名</label>
-                                <input type="text" id="name" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                <input type="text" id="name" name="姓名" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" required>
                             </div>
                             <div>
                                 <label for="phone" class="block text-sm font-medium text-gray-700">联系电话</label>
-                                <input type="tel" id="phone" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                <input type="tel" id="phone" name="联系电话" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" required>
                             </div>
                              <div>
                                 <label for="time" class="block text-sm font-medium text-gray-700">方便联系的时间段</label>
-                                <input type="text" id="time" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="例如：工作日下午">
+                                <input type="text" id="time" name="方便联系的时间" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="例如：工作日下午">
                             </div>
-                            <p class="text-xs text-gray-500">点击下方按钮将调用您设备上的邮件应用来发送报名信息。</p>
-                            <button type="button" onclick="submitEnrollment()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">通过邮件提交报名</button>
+                            <p class="text-xs text-gray-500">点击提交后，您的报名信息将被安全发送。</p>
+                            <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">确认提交报名</button>
                         </form>
                     </div>
                     <div class="bg-blue-50 p-6 rounded-lg">
@@ -395,26 +399,13 @@
              resultDiv.classList.remove('hidden');
         }
 
+        // The submitEnrollment function is no longer needed as the form now submits directly.
+        // It is kept here in case you want to switch back or add JavaScript validation before submission.
+        /*
         function submitEnrollment() {
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const time = document.getElementById('time').value;
-
-            if (!name || !phone) {
-                showAlert('请填写您的姓名和联系电话。');
-                return;
-            }
-
-            const recipientEmail = "3551224508@qq.com";
-            const subject = "新的临床试验报名申请 - 金线莲苷研究";
-            const body = `您好，\n\n有新的参与者提交了报名信息：\n\n姓名：${name}\n联系电话：${phone}\n方便联系的时间：${time || '未填写'}\n\n请尽快处理。`;
-
-            // 创建 mailto 链接
-            const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-            // 通过跳转来尝试打开邮件客户端
-            window.location.href = mailtoLink;
+            // This function is now handled by the form's action attribute.
         }
+        */
 
         // 自定义弹窗函数
         const alertOverlay = document.getElementById('custom-alert');
