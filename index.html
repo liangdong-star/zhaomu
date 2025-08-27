@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金线莲苷NASH研究参与者招募平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-button.active {
+            border-bottom-color: #3b82f6;
+            color: #3b82f6;
+        }
+        /* 自定义弹窗样式 */
+        .custom-alert-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .custom-alert-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .custom-alert-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            width: 400px;
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+       .custom-alert-overlay.visible .custom-alert-box {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="container mx-auto p-4 max-w-4xl">
+        <!-- 顶部Banner -->
+        <header class="bg-blue-600 text-white p-6 rounded-lg shadow-lg text-center mb-8">
+            <h1 class="text-3xl font-bold mb-2">金线莲苷NASH研究参与者招募平台</h1>
+            <p class="text-lg">一项针对非酒精性脂肪性肝炎（NASH）的新药临床研究</p>
+        </header>
+
+        <!-- 导航选项卡 -->
+        <div class="mb-8 border-b-2 border-gray-200 overflow-x-auto">
+            <nav class="flex space-x-2 sm:space-x-4" id="tabs">
+                <button class="tab-button text-base sm:text-lg font-medium py-2 px-3 sm:px-4 text-gray-600 border-b-2 border-transparent transition-colors duration-300 active whitespace-nowrap" data-target="home">首页</button>
+                <button class="tab-button text-base sm:text-lg font-medium py-2 px-3 sm:px-4 text-gray-600 border-b-2 border-transparent transition-colors duration-300 whitespace-nowrap" data-target="screening">资格自测</button>
+                <button class="tab-button text-base sm:text-lg font-medium py-2 px-3 sm:px-4 text-gray-600 border-b-2 border-transparent transition-colors duration-300 whitespace-nowrap" data-target="details">研究详情</button>
+                <button class="tab-button text-base sm:text-lg font-medium py-2 px-3 sm:px-4 text-gray-600 border-b-2 border-transparent transition-colors duration-300 whitespace-nowrap" data-target="team">专家团队</button>
+                <button class="tab-button text-base sm:text-lg font-medium py-2 px-3 sm:px-4 text-gray-600 border-b-2 border-transparent transition-colors duration-300 whitespace-nowrap" data-target="faq">常见问答</button>
+                <button class="tab-button text-base sm:text-lg font-medium py-2 px-3 sm:px-4 text-gray-600 border-b-2 border-transparent transition-colors duration-300 whitespace-nowrap" data-target="contact">在线报名</button>
+            </nav>
+        </div>
+
+        <!-- 内容区域 -->
+        <main id="content">
+            <!-- 首页内容 -->
+            <div id="home" class="space-y-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">探索“金线莲苷”对肝脏健康的潜在益处</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        本研究旨在评估一种名为“金线莲苷片”的研究药物，对于非酒精性脂肪性肝炎（NASH）的安全性和有效性。金线莲苷是传统珍稀中草药“金线莲”的主要活性成分，已有悠久的食用和药用历史，前期研究显示其有护肝潜力。
+                    </p>
+                    <div class="mt-4 text-sm text-gray-500">
+                        <p><strong>研究单位：</strong>华中科技大学同济医学院附属协和医院</p>
+                        <p><strong>申办方：</strong>武汉市金诺赛生物医药有限公司</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">参与研究，您将可能获得</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="flex items-start space-x-4">
+                            <svg class="w-8 h-8 text-blue-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <div>
+                                <h3 class="font-semibold text-lg">免费健康检查</h3>
+                                <p class="text-gray-600">获得免费的肝脏脂肪含量检测（MRI-PDFF）、肝脏弹性检测、血脂、血糖及肝功能等多项检查。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <svg class="w-8 h-8 text-blue-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            <div>
+                                <h3 class="font-semibold text-lg">专业医疗关注</h3>
+                                <p class="text-gray-600">由消化内科专家团队为您提供全程医疗观察和健康指导。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <svg class="w-8 h-8 text-blue-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            <div>
+                                <h3 class="font-semibold text-lg">交通与误工补贴</h3>
+                                <p class="text-gray-600">为您的每次访视提供相应的交通和误工补贴。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                             <svg class="w-8 h-8 text-blue-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                            <div>
+                                <h3 class="font-semibold text-lg">贡献医学进步</h3>
+                                <p class="text-gray-600">您的参与可能为千百万NASH患者带来新的治疗希望。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="text-center">
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105" onclick="showTab('screening')">
+                        我是否符合条件？（立即自测）
+                    </button>
+                </div>
+            </div>
+
+            <!-- 资格自测内容 -->
+            <div id="screening" class="hidden bg-white p-8 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">资格初步自测</h2>
+                <p class="text-gray-600 mb-6">请花2分钟时间完成以下问题，帮助我们初步判断您是否可能符合要求。最终入选资格将由研究医生当面确认。</p>
+                <form id="screening-form" class="space-y-6">
+                    <div>
+                        <label class="block font-medium text-gray-700">1. 您的年龄是否在18至65岁之间？</label>
+                        <div class="mt-2 space-x-4">
+                            <label><input type="radio" name="q1" value="yes" class="mr-1"> 是</label>
+                            <label><input type="radio" name="q1" value="no" class="mr-1"> 否</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-medium text-gray-700">2. 在过去1年内，您是否有B超检查结果提示“脂肪肝”？</label>
+                         <div class="mt-2 space-x-4">
+                            <label><input type="radio" name="q2" value="yes" class="mr-1"> 是</label>
+                            <label><input type="radio" name="q2" value="no" class="mr-1"> 否</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-medium text-gray-700">3. 您是否不饮酒或极少饮酒（男性平均每周酒精摄入量&lt;210克，女性&lt;140克）？</label>
+                         <div class="mt-2 space-x-4">
+                            <label><input type="radio" name="q3" value="yes" class="mr-1"> 是</label>
+                            <label><input type="radio" name="q3" value="no" class="mr-1"> 否</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-medium text-gray-700">4. 您是否患有乙肝、丙肝、肝硬化、自身免疫性肝炎等其他明确的肝脏疾病？</label>
+                         <div class="mt-2 space-x-4">
+                            <label><input type="radio" name="q4" value="no" class="mr-1"> 是</label>
+                            <label><input type="radio" name="q4" value="yes" class="mr-1"> 否</label>
+                        </div>
+                    </div>
+                     <div>
+                        <label class="block font-medium text-gray-700">5. 您的体重指数（BMI）是否在23.9 kg/m² 至 40 kg/m² 之间？</label>
+                         <div class="mt-2 space-x-4">
+                            <label><input type="radio" name="q5" value="yes" class="mr-1"> 是</label>
+                            <label><input type="radio" name="q5" value="no" class="mr-1"> 否</label>
+                            <label><input type="radio" name="q5" value="yes" class="mr-1"> 不清楚</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-medium text-gray-700">6. 您目前是否处于怀孕或哺乳期？</label>
+                         <div class="mt-2 space-x-4">
+                            <label><input type="radio" name="q6" value="no" class="mr-1"> 是</label>
+                            <label><input type="radio" name="q6" value="yes" class="mr-1"> 否</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-medium text-gray-700">7. 在过去3个月内，您是否参与过其他的药物临床试验？</label>
+                         <div class="mt-2 space-x-4">
+                            <label><input type="radio" name="q7" value="no" class="mr-1"> 是</label>
+                            <label><input type="radio" name="q7" value="yes" class="mr-1"> 否</label>
+                        </div>
+                    </div>
+                    <button type="button" onclick="submitScreening()" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg">提交问卷</button>
+                </form>
+                <div id="screening-result" class="mt-6 hidden"></div>
+            </div>
+
+            <!-- 研究详情内容 -->
+            <div id="details" class="hidden space-y-6 bg-white p-8 rounded-lg shadow-md">
+                 <h2 class="text-2xl font-bold text-gray-800 mb-4">研究详情</h2>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">研究流程（总计约28周）</h3>
+                    <div class="relative">
+                        <!-- Timeline line -->
+                        <div class="absolute left-5 top-0 h-full w-0.5 bg-gray-200"></div>
+                        <!-- Timeline items -->
+                        <div class="relative pl-12 mb-6">
+                            <div class="absolute left-0 top-1 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">1</div>
+                            <h4 class="font-semibold">筛选期 (2周内)</h4>
+                            <p class="text-gray-600">签署知情同意书，完成各项基础检查，确认是否符合入选标准。</p>
+                        </div>
+                        <div class="relative pl-12 mb-6">
+                            <div class="absolute left-0 top-1 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">2</div>
+                            <h4 class="font-semibold">治疗期 (24周)</h4>
+                            <p class="text-gray-600">随机分配至试验组或安慰剂组，每日服药，并按时（第4、12、24周）返院复查。</p>
+                        </div>
+                        <div class="relative pl-12">
+                            <div class="absolute left-0 top-1 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">3</div>
+                            <h4 class="font-semibold">随访期 (2周)</h4>
+                            <p class="text-gray-600">治疗结束后进行最后一次全面的安全性检查。</p>
+                        </div>
+                    </div>
+                </div>
+                 <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">研究方法：随机、双盲、安慰剂平行对照</h3>
+                    <p class="text-gray-600">为保证结果的客观公正，您和您的研究医生都不会知道您具体服用的是金线莲苷片还是外观完全相同的安慰剂。通过与安慰剂组的效果对比，我们可以科学地评价金线莲苷片的真实疗效。</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">参与者责任与权利</h3>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li><strong>责任：</strong>需按时复诊、遵医嘱服药、记录用药日记、并及时报告任何身体不适。</li>
+                        <li><strong>权利：</strong>参与完全自愿，您可以在任何时候以任何理由退出研究，您的医疗决定不会因此受到任何影响。您的个人信息将受到严格保密。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 专家团队内容 -->
+            <div id="team" class="hidden bg-white p-8 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">专家团队</h2>
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                    <img src="https://placehold.co/150x150/E2E8F0/4A5568?text=专家头像" alt="蔺蓉教授" class="w-36 h-36 rounded-full object-cover shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/150x150/E2E8F0/4A5568?text=Image+Error';">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-xl font-bold">蔺蓉 教授</h3>
+                        <p class="text-blue-600 font-medium">主要研究者</p>
+                        <p class="text-gray-600 mt-2">华中科技大学同济医学院附属协和医院消化内科主任医师、教授、博士生导师。拥有丰富的临床研究经验，自2015年起已作为主要研究者主持近四十项临床研究。</p>
+                    </div>
+                </div>
+                 <div class="mt-8 pt-6 border-t">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">研究机构</h3>
+                    <p class="text-gray-600">华中科技大学同济医学院附属协和医院是国家卫健委委属委管的大型综合性教学医院，其消化内科在肝病领域具有雄厚的临床与科研实力，为本研究的顺利进行提供了坚实的保障。</p>
+                </div>
+            </div>
+
+            <!-- 常见问答内容 -->
+            <div id="faq" class="hidden space-y-4 bg-white p-8 rounded-lg shadow-md">
+                 <h2 class="text-2xl font-bold text-gray-800 mb-6">常见问答 (FAQ)</h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-gray-800">Q1: 参加这个研究需要花钱吗？</h3>
+                        <p class="text-gray-600 mt-1">A: 不需要。研究中涉及的研究药物以及方案中规定的所有检查（如MRI、抽血等）均为免费提供。</p>
+                    </div>
+                     <div class="pt-4 border-t">
+                        <h3 class="font-semibold text-lg text-gray-800">Q2: 研究药物“金线莲苷”安全吗？</h3>
+                        <p class="text-gray-600 mt-1">A: 金线莲苷来源于有长期安全食用历史的中草药金线莲。在正式的临床前动物研究中，它也显示了良好的安全性。本研究的目的之一就是为了在严格监控下科学地评估它在人体中的安全性。</p>
+                    </div>
+                    <div class="pt-4 border-t">
+                        <h3 class="font-semibold text-lg text-gray-800">Q3: 如果我被分到安慰剂组怎么办？</h3>
+                        <p class="text-gray-600 mt-1">A: 安慰剂的使用是评估新药疗效的国际金标准。研究方案设计，在您完成24周的主要研究后，如果揭盲后您属于安慰剂组，并且研究医生判断您能从中获益，您将有机会在知情同意后继续接受24周的金线莲苷片治疗。</p>
+                    </div>
+                    <div class="pt-4 border-t">
+                        <h3 class="font-semibold text-lg text-gray-800">Q4: 我的个人隐私如何得到保护？</h3>
+                        <p class="text-gray-600 mt-1">A: 您的所有个人信息和医疗记录都将严格保密。在数据分析和结果发表时，将使用唯一的编码来代替您的身份信息。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 在线报名内容 -->
+            <div id="contact" class="hidden bg-white p-8 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">在线报名与联系方式</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">在线报名</h3>
+                        <form id="enrollment-form" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700">姓名</label>
+                                <input type="text" id="name" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700">联系电话</label>
+                                <input type="tel" id="phone" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                             <div>
+                                <label for="time" class="block text-sm font-medium text-gray-700">方便联系的时间段</label>
+                                <input type="text" id="time" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="例如：工作日下午">
+                            </div>
+                            <p class="text-xs text-gray-500">点击下方按钮将调用您设备上的邮件应用来发送报名信息。</p>
+                            <button type="button" onclick="submitEnrollment()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">通过邮件提交报名</button>
+                        </form>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">联系我们</h3>
+                        <div class="space-y-4 text-gray-700">
+                            <p><strong>研究热线:</strong> 156-2918-0035 (蔺蓉教授团队)</p>
+                            <p><strong>联系人:</strong> 研究协调员</p>
+                            <p><strong>工作时间:</strong> 周一至周五, 8:00-17:30</p>
+                            <p><strong>研究地点:</strong> 华中科技大学同济医学院附属协和医院</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 自定义提示弹窗 -->
+    <div id="custom-alert" class="custom-alert-overlay">
+        <div class="custom-alert-box">
+            <p id="custom-alert-message" class="text-gray-700 mb-4"></p>
+            <button onclick="closeAlert()" class="bg-blue-500 text-white font-bold py-2 px-6 rounded-lg">好的</button>
+        </div>
+    </div>
+
+    <script>
+        const tabs = document.getElementById('tabs');
+        const content = document.getElementById('content');
+        const tabButtons = tabs.querySelectorAll('.tab-button');
+        const contentSections = content.children;
+
+        // 初始化时显示首页
+        showTab('home');
+
+        tabs.addEventListener('click', (e) => {
+            if (e.target.matches('.tab-button')) {
+                const targetId = e.target.dataset.target;
+                showTab(targetId);
+            }
+        });
+
+        function showTab(targetId) {
+            // 更新按钮状态
+            tabButtons.forEach(button => {
+                if (button.dataset.target === targetId) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+
+            // 显示对应内容
+            for (let section of contentSections) {
+                if (section.id === targetId) {
+                    section.classList.remove('hidden');
+                } else {
+                    section.classList.add('hidden');
+                }
+            }
+            window.scrollTo(0, 0); // 切换后滚动到页面顶部
+        }
+
+        function submitScreening() {
+            const form = document.getElementById('screening-form');
+            const resultDiv = document.getElementById('screening-result');
+            const answers = {
+                q1: form.q1.value,
+                q2: form.q2.value,
+                q3: form.q3.value,
+                q4: form.q4.value,
+                q5: form.q5.value,
+                q6: form.q6.value,
+                q7: form.q7.value,
+            };
+
+            // 检查是否所有问题都已回答
+            for (const key in answers) {
+                if (!answers[key]) {
+                    showAlert('请回答所有问题后再提交。');
+                    return;
+                }
+            }
+
+            // 根据入选/排除标准简化逻辑
+            const isEligible = 
+                answers.q1 === 'yes' &&
+                answers.q2 === 'yes' &&
+                answers.q3 === 'yes' &&
+                answers.q4 === 'yes' &&
+                (answers.q5 === 'yes') &&
+                answers.q6 === 'yes' &&
+                answers.q7 === 'yes';
+
+            if (isEligible) {
+                resultDiv.innerHTML = `
+                    <div class="p-4 bg-green-100 text-green-700 rounded-md">
+                        <h3 class="font-bold">初步符合！</h3>
+                        <p>感谢您的回答！根据您的信息，您可能符合本研究的要求。请前往“在线报名”页面填写联系方式，我们的研究协调员将在2个工作日内与您联系。</p>
+                        <button class="mt-2 bg-green-500 text-white py-1 px-3 rounded" onclick="showTab('contact')">立即报名</button>
+                    </div>`;
+            } else {
+                 resultDiv.innerHTML = `
+                    <div class="p-4 bg-red-100 text-red-700 rounded-md">
+                        <h3 class="font-bold">可能不符合</h3>
+                        <p>感谢您的参与！根据您提供的信息，您可能不符合本次研究的标准。NASH的治疗需要综合管理，建议您咨询您的医生。也欢迎您持续关注我们未来的其他研究项目。</p>
+                    </div>`;
+            }
+             resultDiv.classList.remove('hidden');
+        }
+
+        function submitEnrollment() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const time = document.getElementById('time').value;
+
+            if (!name || !phone) {
+                showAlert('请填写您的姓名和联系电话。');
+                return;
+            }
+
+            const recipientEmail = "3551224508@qq.com";
+            const subject = "新的临床试验报名申请 - 金线莲苷研究";
+            const body = `您好，\n\n有新的参与者提交了报名信息：\n\n姓名：${name}\n联系电话：${phone}\n方便联系的时间：${time || '未填写'}\n\n请尽快处理。`;
+
+            // 创建 mailto 链接
+            const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // 通过跳转来尝试打开邮件客户端
+            window.location.href = mailtoLink;
+        }
+
+        // 自定义弹窗函数
+        const alertOverlay = document.getElementById('custom-alert');
+        const alertMessage = document.getElementById('custom-alert-message');
+
+        function showAlert(message) {
+            alertMessage.textContent = message;
+            alertOverlay.classList.add('visible');
+        }
+
+        function closeAlert() {
+            alertOverlay.classList.remove('visible');
+        }
+
+    </script>
+</body>
+</html>
